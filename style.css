@@ -93,8 +93,21 @@ html {
         width: inherit;
         min-width:50%
       }
+
+#details-table tr {
+  border-bottom: 1.5px solid #000000;
+}
+
+#details-table tr:last-child {
+  border-bottom: none;
+}
+
+#details-table th {
+  padding: 2% 25px 3% 3%;
+  text-align: left;
+}
       
-      #details-table th {
+/*       #details-table th {
         
         color: #000000;
         font-family: cursive;
@@ -102,9 +115,9 @@ html {
         border-bottom: 0.12rem solid #000000;
         padding: 10px 20px;
         text-align: left;
-      }
+      } */
       
-      #details-table td{
+/*       #details-table td{
         border-bottom: 0.12rem solid #000000;
         border-radius: 15px;
         font-family: Georgia, serif;
@@ -112,7 +125,7 @@ html {
         color: #000000;
         padding: 2% 4rem 3% 8%;
 
-      }
+      } */
       
       #details-table th:first-child,
       #details-table td:first-child {
