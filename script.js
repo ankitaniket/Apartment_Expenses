@@ -32,3 +32,6 @@ function showDetails() {
 window.onload = function () {
   showDetails();
 };
+
+
+

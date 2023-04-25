@@ -77,21 +77,23 @@ html {
           border-top-color: #fff;
         }
       }
-  
-      
+ 
       
       #details-table {
         border-collapse: collapse;
         border-radius: 25px;
-        /* background-color: aliceblue; */
         background-repeat: no-repeat;
         background-size: cover;
         font-family: cursive;
-        font-size: 2.5rem;
-        /* box-shadow: 10px 6px rgb(111, 111, 111); */
-        margin: 2rem 2rem 2rem 2rem ;
-        width: inherit;
-        min-width:50%
+        font-size: 2rem;
+        margin: 2rem;
+        width: 60%;
+
+        background: rgba(255, 255, 255, 0.088);
+        border-radius: 16px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(8px);
+        
       }
 
       #details-table tr {
@@ -103,29 +105,12 @@ html {
       }
 
       #details-table th {
-        padding: 2% 25px 3% 3%;
+        padding: 2%;
         text-align: left;
       }
       
-/*       #details-table th {
-        
-        color: #000000;
-        font-family: cursive;
-        border-radius: 15px;
-        border-bottom: 0.12rem solid #000000;
-        padding: 10px 20px;
-        text-align: left;
-      } */
       
-/*       #details-table td{
-        border-bottom: 0.12rem solid #000000;
-        border-radius: 15px;
-        font-family: Georgia, serif;
-        font-weight: bolder;
-        color: #000000;
-        padding: 2% 4rem 3% 8%;
-
-      } */
+   
       
       #details-table th:first-child,
       #details-table td:first-child {
@@ -149,13 +134,6 @@ html {
         text-align: center;
       }
       
-      
-      #details-table {
-        background: rgba(255, 255, 255, 0.088);
-        border-radius: 16px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(8px);
-      }
       
 
 
@@ -188,3 +166,6 @@ html {
     animation: header-slide-in 0.8s ease-in-out forwards;
   }
   
+
+
+
