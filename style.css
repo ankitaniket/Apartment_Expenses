@@ -94,18 +94,18 @@ html {
         min-width:50%
       }
 
-#details-table tr {
-  border-bottom: 1.5px solid #000000;
-}
+      #details-table tr {
+        border-bottom: 1.5px solid #000000;
+      }
 
-#details-table tr:last-child {
-  border-bottom: none;
-}
+      #details-table tr:last-child {
+        border-bottom: none;
+      }
 
-#details-table th {
-  padding: 2% 25px 3% 3%;
-  text-align: left;
-}
+      #details-table th {
+        padding: 2% 25px 3% 3%;
+        text-align: left;
+      }
       
 /*       #details-table th {
         
