@@ -1,29 +1,53 @@
-body {
-    background-color: #8e8e8e; /* Replace with your preferred color */
-  }
+html {
+	--u:  2.25vmin;	
+	--c1: #83b0e3;
+  --c2: #6c91bb;
+  --c3: #4d6887;
+	--gp: 50%/calc(var(--u) * 5) calc(var(--u) * 10);
+	--bp: calc(var(--u) * -2.5) calc(var(--u) * -5);
+	height: 100vh;
+	--bg: 
+		radial-gradient(circle at 50% 25%, var(--c2)  15%, #fff0 30% 100%) var(--gp),
+		conic-gradient(from 270deg at 34% 46%, var(--c2) 0 12.5%, #fff0 0 100%) var(--gp),
+		conic-gradient(from 45deg at 66% 46%, var(--c2) 0 12.5%, #fff0 0 100%) var(--gp),
+		conic-gradient(from 180deg at 50% 80%, var(--c2) 0 12.5%, #fff0 0 100%) var(--gp),
+		conic-gradient(from 135deg at 50% 80%, var(--c2) 0 12.5%, #fff0 0 100%) var(--gp),
+		conic-gradient(from 0deg at 0% 20%, var(--c2) 0 12.5%, #fff0 0 100%) var(--gp),
+		conic-gradient(from -45deg at 100% 20%, var(--c2) 0 12.5%, #fff0 0 100%) var(--gp),
+		linear-gradient(180deg, var(--c2) 0 4.5%, #fff0 0 45.25%, var(--c2) 0 50%, #fff0 0% 100%) var(--gp),
+		radial-gradient(circle at 50% 25%, #fff0 0 25%, var(--c2) 26% 32%, #fff0 0 100%) var(--gp),
+		linear-gradient(165deg, var(--c3) 15%, var(--c1) 44%, #fff0 0 100%) var(--gp),
+		linear-gradient(180deg, var(--c1) 50%, #fff0 0 100%) var(--gp);
+	background: 
+		var(--bg), 
+		var(--bg);
+	background-position: 
+		var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), 
+		0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+}
   
     .loader {
         height: 150px;
         width: 150px;
-        border: 3px solid transparent;
-        border-radius: 50%;
-        border-top: 4px solid #f15e41;
-        animation: spin 4s linear infinite;
+        border: 4px solid transparent;
+        border-radius: 80%;
+        border-top: 0.6rem solid #ad01e6;
+        animation: spin 3s linear infinite;
         position: relative;
         margin: auto;
-        margin-top: 50px;
+        margin-top: 90px;
       }
       
       .loader::before,
       .loader::after {
         content: "";
         position: absolute;
-        top: 6px;
-        bottom: 6px;
-        left: 6px;
-        right: 6px;
-        border-radius: 50%;
-        border: 4px solid transparent;
+        top: 1rem;
+        bottom: 1rem;
+        left: 1rem;
+        right: 1rem;
+        border-radius: 80%;
+        border: 12px solid transparent;
       }
       
       .loader::before {
@@ -53,22 +77,21 @@ body {
           border-top-color: #fff;
         }
       }
-      
+  
       
       
       #details-table {
         border-collapse: collapse;
         border-radius: 25px;
-        background-image: url('table_background.jpg');
+        /* background-color: aliceblue; */
         background-repeat: no-repeat;
         background-size: cover;
         font-family: cursive;
-        font-size: 26px;
-        color: #281919;
-
-        margin: 0 auto;
+        font-size: 2.5rem;
+        /* box-shadow: 10px 6px rgb(111, 111, 111); */
+        margin: 2rem 2rem 2rem 2rem ;
         width: inherit;
-        min-width:60%
+        min-width:50%
       }
       
       #details-table th {
@@ -76,21 +99,25 @@ body {
         color: #000000;
         font-family: cursive;
         border-radius: 15px;
-        border-bottom: 1.5px solid #000000;
+        border-bottom: 0.12rem solid #000000;
         padding: 10px 20px;
         text-align: left;
       }
       
       #details-table td{
-        border-bottom: 1.5px solid #000000;
+        border-bottom: 0.12rem solid #000000;
         border-radius: 15px;
-        padding: 2% 25px 3% 3%;
+        font-family: Georgia, serif;
+        font-weight: bolder;
+        color: #000000;
+        padding: 2% 4rem 3% 8%;
 
       }
       
       #details-table th:first-child,
       #details-table td:first-child {
         border-radius: 18px 0 0 18px;
+    
 
       }
       
@@ -99,8 +126,52 @@ body {
         border-color: #000000;
       }
 
-      #details-table > tbody > tr:last-child > td {
-        border-bottom: none;
+
+      h1 {
+        font-family: Arial, sans-serif;
+        font-size: 3rem;
+        font-weight: bold;
+        margin-top: auto;
+        color: aliceblue;
+        text-align: center;
       }
       
       
+      #details-table {
+        background: rgba(255, 255, 255, 0.088);
+        border-radius: 16px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(8px);
+      }
+      
+
+
+/* Define the animation for the table rows */
+@keyframes row-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Apply the animation to the table rows */
+  #details-table tr {
+    animation: row-fade-in 0.5s ease-in-out forwards;
+  }
+  
+  /* Define the animation for the table headers */
+  @keyframes header-slide-in {
+    from {
+      transform: translateX(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Apply the animation to the table headers */
+  #details-table th,
+  #details-table td {
+    animation: header-slide-in 0.8s ease-in-out forwards;
+  }
+  

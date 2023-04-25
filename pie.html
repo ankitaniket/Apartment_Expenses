@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Radial Gradient Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div style="width:75%;">
+        <canvas id="myChart"></canvas>
+    </div>
+    <script>
+        const url = "https://script.googleusercontent.com/macros/echo?user_content_key=jSmGvjP4nwREmf0LwltYBywgMYka8YMc4jeLfnVKJvtbrnf1aIZRM0xrm4JfoTgVv_OmwO9FO0Fr6nZnSHbmGahnU1FYLja6m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnFecVD4fy0tJ9yTyKcZhZG9rWp6oQEFmLHaPG9Zhn4MOUsWiUcUkOiKuQzS9WQvCe-OB2TYD-kIlkvOfXOdfYkWgDOOzNGoubdz9Jw9Md8uu&lib=M7zqmwJEv-Dnz6DiQ8ENENggF_AUVVqqP"; //replace with your JSON data link
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const commonData = data.Common;
+                const chartData = {
+                    labels: ["Total Common Expenses", "Grocery Expenses", "Vegetable Expenses"],
+                    datasets: [
+                        {
+                            data: [commonData.TotalCommonExp/10, commonData.Grocery, commonData.Vegetable],
+                            backgroundColor: [
+                                "rgba(255, 99, 132, 0.5)",
+                                "rgba(54, 162, 235, 0.5)",
+                                "rgba(255, 206, 86, 0.5)"
+                            ],
+                            borderColor: [
+                                "rgba(255, 99, 132, 1)",
+                                "rgba(54, 162, 235, 1)",
+                                "rgba(255, 206, 86, 1)"
+                            ],
+                            borderWidth: 1
+                        }
+                    ]
+                };
+                const ctx = document.getElementById("myChart").getContext("2d");
+                const myChart = new Chart(ctx, {
+                    type: "polarArea",
+                    data: chartData,
+                    options: {
+                        aspectRatio: 1,
+                        maintainAspectRatio: true,
+                        elements: {
+                            line: {
+                                borderWidth: 0
+                            }
+                        },
+                        scale: {
+                            angleLines: {
+                                display: false
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        },
+                        plugins: {
+                            beforeInit: function(chart) {
+                                chart.data.datasets.forEach(function(dataset) {
+                                    dataset.borderWidth = 0;
+                                });
+                            }
+                        }
+                    }
+                });
+            });
+    </script>
+</body>
+</html>
