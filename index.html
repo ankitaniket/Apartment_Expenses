@@ -6,8 +6,24 @@
 	<link rel="stylesheet" href="style.css">
 	<script src="script.js"></script>
 
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
+
+
+	<!-- Font Awesome -->
+	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+	<!-- Bootstrap Scripts -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 
 
 	<title>Apartment API</title>
@@ -15,38 +31,45 @@
 
 <body>
 	<h1>Apartment Expenses</h1>
-	<select id="names" onchange="showDetails()">
-		<option value="Ankit">Ankit Aniket</option>
-		<option value="Avinash">Avinash Kumar</option>
-	</select>
-	<br><br>
-	<div id="loader" class="loader"></div>
 	<div>
-		<table id="details-table">
-			<thead id="thead">
-				<tr>
-					<th>Balance Carry Forward</th>
-					<td id="bal-cary"></td>
-				</tr>
-				<tr>
-					<th>Balance Brought Forward</th>
-					<td id="bal-back"></td>
-				</tr>
-				<tr>
-					<th>Expenses</th>
-					<td id="bal-exp"></td>
-				</tr>
-				<tr>
-					<th>Deposit</th>
-					<td id="deposit"></td>
-				</tr>
-			</thead>
-		</table>
+		<select id="names" onchange="showDetails()">
+			<option value="Ankit">Ankit Aniket</option>
+			<option value="Avinash">Avinash Kumar</option>
+		</select>
 	</div>
 
-	
-	
 
+
+	<div id="loader" class="loader"></div>
+
+
+
+	<div class="row">
+		<div id="box1" class="col-sm-8">
+			<table id="details-table">
+				<thead id="thead">
+					<tr>
+						<th>Balance Carry Forward</th>
+						<td id="bal-cary"></td>
+					</tr>
+					<tr>
+						<th>Balance Brought Forward</th>
+						<td id="bal-back"></td>
+					</tr>
+					<tr>
+						<th>Expenses</th>
+						<td id="bal-exp"></td>
+					</tr>
+					<tr>
+						<th>Deposit</th>
+						<td id="deposit"></td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div id="box2" class="col-sm-4">
+			<canvas id="myChart"></canvas>
+		</div>
+	</div>
 </body>
-
 </html>

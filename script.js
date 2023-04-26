@@ -10,15 +10,82 @@ function showDetails() {
         var data = JSON.parse(xhr.responseText);
         var details = data[selectedOption];
         document.getElementById("bal-cary").innerHTML =
-          details.BalCaryFrd.toFixed(2);
+          "₹ "+ details.BalCaryFrd.toFixed(2);
         document.getElementById("bal-back").innerHTML =
-          details.BalBack.toFixed(2);
+        "₹ "+  details.BalBack.toFixed(2);
         document.getElementById("bal-exp").innerHTML =
-          details.BalExp.toFixed(2);
+        "₹ "+ details.BalExp.toFixed(2);
         document.getElementById("deposit").innerHTML =
-          details.Deposite.toFixed(2);
+        "₹ "+ details.Deposite.toFixed(2);
         document.getElementById("details-table").style.display = "table";
+        document.getElementById("box2").style.display = "block";
         document.getElementById("loader").style.display = "none";
+
+
+        const commonData = data.Common;
+        const chartData = {
+        labels: ["Total Common Expenses", "Grocery Expenses", "Vegetable Expenses"],
+        datasets: [
+        {
+          data: [commonData.TotalCommonExp/10, commonData.Grocery, commonData.Vegetable],
+          backgroundColor: [
+            "rgba(255, 99, 132, 0.4)",
+            "rgba(54, 162, 235, 0.4)",
+            "rgba(255, 206, 86, 0.4)"
+          ],
+          borderColor: [
+            "rgba(255, 99, 132, 1)",
+            "rgba(54, 162, 235, 1)",
+            "rgba(255, 206, 86, 1)"
+          ],
+          borderWidth: 0
+        }
+        ]
+        };
+        const ctx = document.getElementById("myChart").getContext("2d");
+        const myChart = new Chart(ctx, {
+        type: "polarArea",
+        data: chartData,
+        options: {
+        aspectRatio: 1,
+        maintainAspectRatio: true,
+        elements: {
+          line: {
+            borderWidth: 1
+          }
+        },
+        scale: {
+          angleLines: {
+            display: false
+          },
+          ticks: {
+            beginAtZero: true,
+            fontColor: '#000000'
+          },
+          gridLines: {
+            color: '#000000'
+          }
+        },
+        plugins: {
+          beforeInit: function(chart) {
+            chart.data.datasets.forEach(function(dataset) {
+              dataset.borderWidth = 0;
+            });
+          }
+        },
+        legend: {
+          labels: {
+            fontColor: '#000000'
+          }
+        }
+        }
+        });
+        
+
+
+
+
+
       } else {
         console.log("Error loading data.");
       }
@@ -26,12 +93,10 @@ function showDetails() {
   };
   xhr.send();
   document.getElementById("details-table").style.display = "none";
+  document.getElementById("box2").style.display = "none";
   document.getElementById("loader").style.display = "block";
 }
 
 window.onload = function () {
   showDetails();
 };
-
-
-
